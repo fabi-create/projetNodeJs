@@ -1,0 +1,48 @@
+doctype html
+html
+  head
+    title Gestion Produits
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    
+  body
+     nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href='#') GesProduit
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      div#navbarNav.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item.active
+            a.nav-link(href='/') Accueil
+          li.nav-item
+            a.nav-link(href='/about') À propos
+          li.nav-item
+            a.nav-link(href='/contact') Contact
+    .container
+      h1 Bienvenue dans notre application de gestion de produits
+       .row
+        .col-md-6.offset-md-3
+          .content.text-center
+            a.btn.btn-primary.btn-sm(href=`/add`) Ajouter un produit 
+      .row
+      .content.text-center     
+        h2 Liste des produits
+      table.table.table-bordered
+        thead
+          tr
+            th#th-name(scope='col-3') Nom
+            th#th-price(scope='col-3') Prix
+            th#th-description(scope='col-3') Description
+            th#th-actions(scope='col-2') Actions
+        tbody
+          each produit in produits
+            tr
+              td= produit.nom
+              td= produit.prix
+              td= produit.description
+              td.p-2
+                a.btn.btn-primary.btn-sm(href=`/detail/${produit.id}`) Détails
+                a.btn.btn-warning.btn-sm(href=`/update/${produit.id}`) Modifier
+                a.btn.btn-danger.btn-sm(href=`/produit/${produit.id}`) Supprimer
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.min.js')

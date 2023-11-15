@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href='#') GesProduit
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      div#navbarNav.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/') Accueil
+          li.nav-item
+            a.nav-link(href='/about') À propos
+          li.nav-item.active
+            a.nav-link(href='/contact') Contact
+    .container
+      h1 Contactez-nous
+      p Pour toute question ou demande, veuillez remplir le formulaire ci-dessous.
+      form(action='/contact', method='post')
+        .form-group
+          label(for='name') Nom
+          input#name.form-control(type='text', name='name', required)
+        .form-group
+          label(for='email') Adresse e-mail
+          input#email.form-control(type='email', name='email', required)
+        .form-group
+          label(for='message') Message
+          textarea#message.form-control(name='message', rows='5', required)
+        .content.text-center
+          button.btn.btn-primary(type='submit') Envoyer
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
